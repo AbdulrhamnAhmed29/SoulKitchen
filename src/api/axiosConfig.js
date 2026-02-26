@@ -5,9 +5,9 @@ const api = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
 });
 
-// انترسبتور الطلب: بيجيب التوكن من الكوكيز ويبعتها
+// interceptor requests 
 api.interceptors.request.use((config) => {
-  const token = Cookies.get('jwt'); // بنسمي الكوكي jwt مثلاً
+  const token = Cookies.get('jwt');
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
@@ -16,12 +16,12 @@ api.interceptors.request.use((config) => {
   return Promise.reject(error);
 });
 
-// انترسبتور الرد: لو حصل 401 بيمسح الكوكي
+// interceptor response 
 api.interceptors.response.use((response) => {
   return response.data;
 }, (error) => {
   if (error.response?.status === 401) {
-    Cookies.remove('jwt'); // مسح الكوكي
+    Cookies.remove('jwt'); 
     window.location.href = '/login';
   }
   return Promise.reject(error);
