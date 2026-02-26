@@ -1,0 +1,61 @@
+src/
+├── api/
+│   ├── axiosConfig.js          # axios instance + interceptors
+│   └── baseApi.js              # get/post/put/delete wrappers
+│
+├── assets/
+│   ├── images/
+│   └── icons/
+│
+├── components/                 # PRESENTATIONAL ONLY
+│   ├── ui/
+│   │   ├── Button.jsx
+│   │   ├── Input.jsx
+│   │   └── Spinner.jsx
+│   │
+│   └── common/
+│       ├── Navbar.jsx
+│       └── Footer.jsx
+│
+├── config/
+│   ├── routes.js
+│   └── env.js
+│
+├── features/
+│   ├── auth/
+│   │   ├── services/
+│   │   │   └── auth.service.js     # login / register logic
+│   │   └── components/
+│   │       ├── LoginForm.jsx
+│   │       └── RegisterForm.jsx
+│   │
+│   ├── booking/
+│   │   ├── services/
+│   │   │   └── booking.service.js
+│   │   └── components/
+│   │       ├── BookingForm.jsx
+│   │       └── TablePicker.jsx
+│   │
+│   └── menu/
+│       ├── services/
+│       │   └── menu.service.js
+│       └── components/
+│           ├── ProductCard.jsx
+│           └── CategoryFilter.jsx
+│
+├── layouts/
+│   ├── MainLayout.jsx
+│   └── DashboardLayout.jsx
+│
+├── pages/                      # DATA OWNER
+│   ├── HomePage.jsx
+│   ├── LoginPage.jsx
+│   ├── BookingPage.jsx
+│   └── ProfilePage.jsx
+│
+├── utils/
+│   ├── formatDate.js
+│   └── validators.js
+│
+├── App.jsx
+└── main.jsx

@@ -1,7 +1,7 @@
 import api from './axiosConfig';
 
 
-//    CRUD golbal functions 
+//    CRUD GLOBAL FUNCTIONS 
 export const baseApi =
 {
     // 1. (Read)
@@ -9,7 +9,6 @@ export const baseApi =
         const res = await api.get(endpoint, { params });
         return res.data
     },
-
     // 2.  (Read) by id
     getOne: async (endpoint, id, params = {}) => {
         const res = await api.get(`${endpoint}/${id}`, { params });;
@@ -28,7 +27,7 @@ export const baseApi =
         return res.data 
     },
 
-    // 5. حذف عنصر (Delete)
+    // 5.(Delete)
     delete: async (endpoint, id) => {
         const res = await api.delete(`${endpoint}/${id}`);
         return  res.data 
