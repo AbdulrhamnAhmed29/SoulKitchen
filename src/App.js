@@ -1,12 +1,7 @@
-import React from 'react'
+import AppRouter from './routes/AppRouter';
 
 function App() {
-  return (
-    <div className='bg-red-900'>
-      App
-      App
-    </div>
-  )
+  return <AppRouter />;
 }
 
-export default App
+export default App;
