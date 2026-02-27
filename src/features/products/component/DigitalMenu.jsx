@@ -6,7 +6,7 @@ function DigitalMenu() {
 
     if (isLoading) return null; 
     return (
-        <section className="bg-[#0a0b0a]  text-[#e5e5e5] py-20 px-6">
+        <section className=" bg-gradient-to-b  from-black via-stone-950 to bottom to-stone-900  text-[#e5e5e5] py-20 px-6">
             <div className="max-w-6xl mx-auto">
                 {/* Header: Our Menu */}
                 <div className="text-center mb-20">

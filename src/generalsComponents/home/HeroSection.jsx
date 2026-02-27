@@ -8,7 +8,7 @@ function HeroSection() {
             <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[10000ms] hover:scale-110"
                 style={{
-                    backgroundImage: `url('/images/Hero.jpg')`, 
+                    backgroundImage: `url('/images/resturent.jpg')`, 
                 }}
             >
                 
