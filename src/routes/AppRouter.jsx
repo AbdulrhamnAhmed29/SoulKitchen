@@ -6,7 +6,7 @@ import AppLayout from '../layouts/AppLayout';
 // Pages
 import Signin from '../features/auth/pages/Signin';
 import Signup from '../features/auth/pages/Signup';
-import Home from '../generalPges/Home';
+import Home from '../generalPages/Home';
 
 const router = createBrowserRouter([
     {
