@@ -4,25 +4,13 @@ import productsServices from "../services/ProductsServices";
 /**
  * @param {Object} options 
  */
-export const useProducts = ( { page = 1, pageSize = 6, searchTerm = "", categoryName = "" } =  {}) => {
+export const useProducts = ( ) => {
 
-    const filters = {
-        "pagination[page]": page,
-        "pagination[pageSize]": pageSize,
-    };
-
-
-    if (searchTerm) {
-        filters["filters[name][$contains]"] = searchTerm;
-    }
-
-    if (categoryName && categoryName !== "All") {
-        filters["filters[category][name][$eq]"] = categoryName;
-    }
+  
 
     return useQuery({
-        queryKey: ["products", page, pageSize, searchTerm, categoryName],
-        queryFn: () => productsServices.getAllProduct(filters),
+        queryKey: ["products"],
+        queryFn: () => productsServices.getAllProduct(),
         keepPreviousData: true,
         staleTime: 1000 * 60 * 5,
     });
