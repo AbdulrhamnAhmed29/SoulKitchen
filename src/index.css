@@ -1,3 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html{
+    scroll-behavior: smooth;
+}
+
+.scroll-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: #111;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+  z-index: 1000;
+}
+
+.scroll-btn.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+/* Global Dark Scrollbar */
+* {
+  scrollbar-width: thin;              /* Firefox */
+  scrollbar-color: #242323 #111;         /* thumb / track */
+}
+
+/* Webkit Browsers */
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #111;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #0e0c0c;
+  border-radius: 8px;
+  border: 2px solid #111;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #252525;
+}
