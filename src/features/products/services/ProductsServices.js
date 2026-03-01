@@ -3,7 +3,7 @@ import { baseApi } from "../../../api/baseApi";
 const productsServices = {
     // get all products 
     getAllProduct: async (params = {}) => {
-        return await baseApi.getAll("/products");
+        return await baseApi.getAll("/products?populate=*");
     },
     // get one by id 
     getProductById: async (id) => {

@@ -26,6 +26,7 @@ export const useAuth = () => {
             console.log(data);
             if (data?.jwt) {
                 Cookies.set('jwt', data.jwt, { expires: 7 });
+                localStorage.setItem("name" ,data?.user?.username )
                 navigate('/');
             }
         },
