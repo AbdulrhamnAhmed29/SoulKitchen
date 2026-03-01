@@ -3,8 +3,10 @@ import { useProducts } from '../hook/useProducts';
 
 function DigitalMenu() {
     const { data: products, isLoading } = useProducts();
+    const menu = products?.data || [];
 
-    if (isLoading) return null; 
+
+    if (isLoading) return null;
     return (
         <section className=" bg-gradient-to-b  from-black via-stone-950 to bottom to-stone-900  text-[#e5e5e5] py-20 px-6">
             <div className="max-w-6xl mx-auto">
@@ -27,8 +29,8 @@ function DigitalMenu() {
 
                 {/* The Menu Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
-                    {products?.map((item) => (
-                        <div key={item._id} className="group">
+                    {menu?.map((item) => (
+                        <div key={item.id} className="group">
                             <div className="flex justify-between items-baseline mb-1">
                                 <h4 className="text-lg font-medium text-white transition-colors duration-300">
                                     {item.title}
