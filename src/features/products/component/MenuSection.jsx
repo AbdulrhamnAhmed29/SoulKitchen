@@ -29,6 +29,8 @@ const MenuSection = () => {
     const { data: productsData, isLoading } = useProducts();
     const imageUrl = process.env.REACT_APP_URL || "http://localhost:1337";
     const products = productsData?.data || [];
+    console.log(products);
+    
     
     
     

@@ -7,6 +7,7 @@ import AppLayout from '../layouts/AppLayout';
 import Signin from '../features/auth/pages/Signin';
 import Signup from '../features/auth/pages/Signup';
 import Home from '../generalPages/Home';
+import GoogleCallback from '../features/googleAuth/components/GoogleCallback';
 
 const router = createBrowserRouter([
     {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
             { path: '/', element: <Home /> },
             { path: '/signin', element: <Signin /> },
             { path: '/signup', element: <Signup /> },
+            { path: '/auth/google/callback', element: <GoogleCallback /> },
             //   -----------authenticated-pages------------- 
 
             // 2. (Protected Routes)

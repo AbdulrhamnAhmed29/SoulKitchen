@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { useNavigate, Link } from 'react-router-dom';
 import { HiOutlineEye, HiOutlineEyeOff } from 'react-icons/hi';
 import { motion, AnimatePresence } from 'framer-motion'; // استيراد موشن
+import GoogleLoginBtn from '../../googleAuth/components/GoogleLoginBtn';
 
 const schema = yup.object().shape({
     username: yup.string().when('isSignUp', {
@@ -19,10 +20,10 @@ const schema = yup.object().shape({
 // تعريف الـ Variants للأنيميشن خارج الكومبوننت لتحسين الأداء
 const containerVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-        opacity: 1, 
+    visible: {
+        opacity: 1,
         y: 0,
-        transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
+        transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
     }
 };
 
@@ -87,28 +88,28 @@ function Form({ btn, type, isloading, iserror }) {
     return (
         <div className="min-h-screen flex items-center justify-center bg-[#000] p-4 pt-28 relative font-sans overflow-hidden">
             {/* Background Texture with subtle pulse */}
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 2 }}
                 className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,_#0a0a0a_0%,_transparent_70%)]"
             ></motion.div>
 
-            <motion.div 
+            <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
                 className="relative max-w-4xl w-full flex flex-col md:flex-row bg-black border border-white/[0.05] shadow-2xl overflow-hidden"
             >
                 {/* Left Side: Brand Story */}
-                <motion.div 
+                <motion.div
                     initial={{ x: -20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 1, delay: 0.2 }}
                     className="md:w-1/2 p-12 flex flex-col justify-between bg-gradient-to-b from-[#080808] to-black border-b md:border-b-0 md:border-r border-white/5"
                 >
                     <div>
-                        <motion.h1 
+                        <motion.h1
                             initial={{ letterSpacing: "0.2em", opacity: 0 }}
                             animate={{ letterSpacing: "0.6em", opacity: 1 }}
                             transition={{ duration: 1.2 }}
@@ -118,7 +119,7 @@ function Form({ btn, type, isloading, iserror }) {
                         </motion.h1>
                         <div className="mt-20">
                             <AnimatePresence mode="wait">
-                                <motion.h2 
+                                <motion.h2
                                     key={isSignUp}
                                     initial={{ opacity: 0, x: -10 }}
                                     animate={{ opacity: 1, x: 0 }}
@@ -143,7 +144,7 @@ function Form({ btn, type, isloading, iserror }) {
                 {/* Right Side: Action Area */}
                 <div className="md:w-1/2 p-12 bg-[#020202]">
                     <form className="space-y-10" onSubmit={handleSubmit(onSubmit)}>
-                        <motion.div 
+                        <motion.div
                             variants={staggerContainer}
                             initial="hidden"
                             animate="visible"
@@ -183,20 +184,20 @@ function Form({ btn, type, isloading, iserror }) {
                                     id="password"
                                 />
                                 <label htmlFor="password" className="absolute left-0 top-3 text-[10px] text-gray-500 tracking-[0.2em] uppercase transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-xs peer-focus:-top-4 peer-focus:text-[9px] peer-focus:text-white">Security Key</label>
-                                
-                                <button 
+
+                                <button
                                     type="button"
                                     onClick={() => setShowPassword(!showPassword)}
                                     className="absolute right-0 top-3 text-gray-600 hover:text-white transition-colors"
                                 >
                                     {showPassword ? <HiOutlineEyeOff size={18} /> : <HiOutlineEye size={18} />}
                                 </button>
-                                
+
                                 {errors.password && <span className="text-red-900 text-[8px] absolute -bottom-4 left-0 uppercase">{errors.password.message}</span>}
                             </motion.div>
                         </motion.div>
 
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.8 }}
@@ -210,9 +211,11 @@ function Form({ btn, type, isloading, iserror }) {
                                 {isloading ? 'PROCESSING...' : btn}
                             </button>
 
+                            <GoogleLoginBtn />
+
                             <div className="text-center">
-                                <Link 
-                                    to={isSignUp ? "/signin" : "/signup"} 
+                                <Link
+                                    to={isSignUp ? "/signin" : "/signup"}
                                     className="text-[9px] text-gray-500 tracking-[0.3em] uppercase hover:text-white transition-colors duration-300 decoration-white/20 underline-offset-8 underline"
                                 >
                                     {isSignUp ? "Already a Member? Sign In" : "New Resident? Register Here"}
@@ -223,7 +226,7 @@ function Form({ btn, type, isloading, iserror }) {
                 </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.2 }}
                 transition={{ delay: 1.2 }}
