@@ -10,10 +10,11 @@ export const useAuth = () => {
     const loginMutation = useMutation({
         mutationFn: (loginData) => authService.login(loginData),
         onSuccess: (data) => {
+            console.log(data);
+
             if (data?.jwt) {
                 Cookies.set('jwt', data.jwt, { expires: 7 });
-                localStorage.setItem('user', JSON.stringify(data.user));
-                navigate('/'); 
+                navigate('/');
             }
         },
     });
@@ -22,9 +23,9 @@ export const useAuth = () => {
     const registerMutation = useMutation({
         mutationFn: (registerData) => authService.register(registerData),
         onSuccess: (data) => {
+            console.log(data);
             if (data?.jwt) {
                 Cookies.set('jwt', data.jwt, { expires: 7 });
-                localStorage.setItem('user', JSON.stringify(data.user));
                 navigate('/');
             }
         },
@@ -49,7 +50,5 @@ export const useAuth = () => {
 
         //    Logout 
         logout,
-        isAuthenticated: authService.isAuthenticated(),
-        user: JSON.parse(localStorage.getItem('user')) || null
     };
 };
