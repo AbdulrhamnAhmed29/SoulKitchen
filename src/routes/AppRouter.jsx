@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 
 // Layouts
 import AppLayout from '../layouts/AppLayout';
@@ -15,7 +15,8 @@ const router = createBrowserRouter([
         children: [
             // 1. (Public Routes)
             //   -----------General pages------------- 
-            { path: '/', element: <Home /> },
+            { path: '/', element:<Navigate to="/home" replace /> },
+            { path: '/home', element: <Home /> },
             { path: '/signin', element: <Signin /> },
             { path: '/signup', element: <Signup /> },
             { path: '/auth/google/callback', element: <GoogleCallback /> },
