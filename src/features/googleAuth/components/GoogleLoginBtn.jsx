@@ -43,6 +43,7 @@ const GoogleLoginBtn = () => {
     return (
         <button
             onClick={handleLogin}
+            type='button'
             className="group relative flex w-full items-center justify-center gap-3 border border-white/10 bg-black px-6 py-3.5 transition-all duration-500 hover:border-white/40 hover:bg-[#0a0a0a]"
         >
             <div className="absolute inset-0 opacity-0 blur-xl transition-opacity duration-500 group-hover:bg-orange-500/5 group-hover:opacity-100" />
