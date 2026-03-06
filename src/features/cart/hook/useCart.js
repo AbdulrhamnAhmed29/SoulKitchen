@@ -43,7 +43,6 @@ export const useCart = () => {
             const previousCart = queryClient.getQueryData(["cart"]);
 
             queryClient.setQueryData(["cart"], (old) => {
-                // بنحدث الـ Cache بالكمية اللي جاية من الـ UI بالظبط (زيادة أو نقصان)
                 return old?.map(item =>
                     item.documentId === newItem.id
                         ? { ...item, quantity: newItem.quantity }
@@ -67,7 +66,6 @@ export const useCart = () => {
             await queryClient.cancelQueries(["cart"]);
             const previousCart = queryClient.getQueryData(["cart"]);
 
-            // الحذف من الـ Cache فوراً باستخدام documentId
             queryClient.setQueryData(["cart"], (old) =>
                 old?.filter(item => item.documentId !== id)
             );
@@ -85,7 +83,6 @@ export const useCart = () => {
     return {
         addMutation: addMutation.mutate,
         query,
-        // بنناديها في الكومبوننت كدة: updateMutation({ id: item.documentId, quantity: newQty })
         updateMutation: updateMutation.mutate,
         removeMutation: removeMutation
     };

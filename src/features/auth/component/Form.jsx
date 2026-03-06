@@ -5,7 +5,7 @@ import * as yup from 'yup';
 import Swal from 'sweetalert2';
 import { useNavigate, Link } from 'react-router-dom';
 import { HiOutlineEye, HiOutlineEyeOff } from 'react-icons/hi';
-import { motion, AnimatePresence } from 'framer-motion'; // استيراد موشن
+import { motion, AnimatePresence } from 'framer-motion'; 
 import GoogleLoginBtn from '../../googleAuth/components/GoogleLoginBtn';
 
 const schema = yup.object().shape({
@@ -17,7 +17,6 @@ const schema = yup.object().shape({
     password: yup.string().min(6).required(),
 });
 
-// تعريف الـ Variants للأنيميشن خارج الكومبوننت لتحسين الأداء
 const containerVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {

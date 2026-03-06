@@ -2,8 +2,9 @@ import React from 'react';
 import { useProducts } from '../hook/useProducts';
 
 function DigitalMenu() {
-    const { data: products, isLoading } = useProducts();
-    const menu = products?.data || [];
+    const { data: productsData, isLoading } = useProducts({});
+    const menu = productsData?.data || [];
+
 
 
     if (isLoading) return null;
