@@ -8,6 +8,7 @@ import Signin from '../features/auth/pages/Signin';
 import Signup from '../features/auth/pages/Signup';
 import Home from '../generalPages/Home';
 import GoogleCallback from '../features/googleAuth/components/GoogleCallback';
+import CartPage from '../features/cart/page/CartPage';
 
 const router = createBrowserRouter([
     {
@@ -15,11 +16,12 @@ const router = createBrowserRouter([
         children: [
             // 1. (Public Routes)
             //   -----------General pages------------- 
-            { path: '/', element:<Navigate to="/home" replace /> },
+            { path: '/', element: <Navigate to="/home" replace /> },
             { path: '/home', element: <Home /> },
             { path: '/signin', element: <Signin /> },
             { path: '/signup', element: <Signup /> },
             { path: '/auth/google/callback', element: <GoogleCallback /> },
+            { path: '/cart', element: <CartPage /> },
             //   -----------authenticated-pages------------- 
 
             // 2. (Protected Routes)
