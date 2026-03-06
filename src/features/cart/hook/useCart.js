@@ -4,39 +4,51 @@ import { cartServices } from "../services/cartServices";
 export const useCart = () => {
     const queryClient = useQueryClient();
 
-    // Get cart products
     const query = useQuery({
         queryKey: ["cart"],
         queryFn: cartServices.getAllCart
     });
+
+
     const addMutation = useMutation({
         mutationFn: (item) => {
-            const exist = query.data?.find(i => i.id === item.id);
+            const exist = query.data?.find(i => (i.product?.documentId === item.documentId));
+            const userId = localStorage.getItem("userId")
+
             if (exist) {
-                return cartServices.updateData(item.id, exist.quantity + 1);
+                console.log("INCREMENT PRODUCT");
+                return cartServices.updateData(
+                    exist.documentId,
+                    exist.quantity + 1 
+                );
+
             } else {
-                return cartServices.create({ ...item, quantity: 1 });
+                console.log("ADDED NEW PRODUCT");
+                console.log(item);
+
+                return cartServices.create({
+                    product: item.documentId,
+                    quantity: 1,
+                    users_permissions_user: userId
+                });
             }
         },
-        // ... onMutate, onError, onSettled
+        onSuccess: () => queryClient.invalidateQueries(["cart"])
     });
 
-    // Add item to cart with optimistic update
     const updateMutation = useMutation({
-        mutationFn: (item) => cartServices.updateData(item.id, item.quantity || 1),
+        mutationFn: ({ id, quantity }) => cartServices.updateData(id, quantity),
         onMutate: async (newItem) => {
             await queryClient.cancelQueries(["cart"]);
-
             const previousCart = queryClient.getQueryData(["cart"]);
 
             queryClient.setQueryData(["cart"], (old) => {
-                const existItem = old.find(item => item.id === newItem.id);
-                if (existItem) {
-                    return old.map(item =>
-                        item.id === newItem.id ? { ...item, quantity: item.quantity + 1 } : item
-                    );
-                }
-                return [...old, { ...newItem, quantity: 1 }];
+                // بنحدث الـ Cache بالكمية اللي جاية من الـ UI بالظبط (زيادة أو نقصان)
+                return old?.map(item =>
+                    item.documentId === newItem.id
+                        ? { ...item, quantity: newItem.quantity }
+                        : item
+                );
             });
 
             return { previousCart };
@@ -49,13 +61,17 @@ export const useCart = () => {
         }
     });
 
-    // Remove item from cart
     const removeMutation = useMutation({
         mutationFn: (id) => cartServices.deleteCartData(id),
         onMutate: async (id) => {
             await queryClient.cancelQueries(["cart"]);
             const previousCart = queryClient.getQueryData(["cart"]);
-            queryClient.setQueryData(["cart"], (old) => old.filter(item => item.id !== id));
+
+            // الحذف من الـ Cache فوراً باستخدام documentId
+            queryClient.setQueryData(["cart"], (old) =>
+                old?.filter(item => item.documentId !== id)
+            );
+
             return { previousCart };
         },
         onError: (err, id, context) => {
@@ -67,11 +83,10 @@ export const useCart = () => {
     });
 
     return {
-        // used in products page 
-        addMutation,
-        // used in cart page 
+        addMutation: addMutation.mutate,
         query,
-        updateMutation,
-        removeMutation
+        // بنناديها في الكومبوننت كدة: updateMutation({ id: item.documentId, quantity: newQty })
+        updateMutation: updateMutation.mutate,
+        removeMutation: removeMutation
     };
 };
