@@ -28,7 +28,9 @@ function Home() {
             </motion.div>
 
 
-            <MenuSection />
+            <MenuSection
+                page={"home"}
+            />
 
             <motion.div
                 initial="hidden"
