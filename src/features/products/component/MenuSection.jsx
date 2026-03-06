@@ -4,19 +4,23 @@ import toast from 'react-hot-toast';
 import Cookies from "js-cookie";
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { useCart } from '../../cart/hook/useCart';
 
 const MenuSection = () => {
+    const { addMutation } = useCart()
     const navigate = useNavigate();
     const { data: productsData, isLoading } = useProducts();
-    
+
     // variables 
     const imageUrl = process.env.REACT_APP_URL || "http://localhost:1337";
     const products = productsData?.data || [];
     const isAuth = Cookies.get("jwt");
 
     // functions 
-    const handleAddToCart = (productTitle) => {
+    const handleAddToCart = (productTitle, item) => {
         if (isAuth) {
+
+            addMutation(item);
             toast.success(`${productTitle} added to your cart!`, {
                 style: {
                     border: '1px solid #333',
@@ -37,8 +41,8 @@ const MenuSection = () => {
                 text: "Please sign in to add items to your cart and enjoy the full experience.",
                 icon: "info",
                 showCancelButton: true,
-                confirmButtonColor: "#fff", 
-                cancelButtonColor: "#18181b", 
+                confirmButtonColor: "#fff",
+                cancelButtonColor: "#18181b",
                 confirmButtonText: "SIGN IN NOW",
                 cancelButtonText: "MAYBE LATER",
                 background: "#09090b",
@@ -119,7 +123,7 @@ const MenuSection = () => {
                                         </p>
 
                                         <button
-                                            onClick={() => handleAddToCart(item?.title)}
+                                            onClick={() => handleAddToCart(item?.title, item)}
                                             className="w-full py-4 mt-auto flex items-center justify-center gap-3 text-white text-[10px] tracking-[0.3em] uppercase 
                                             opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out border border-white/5 hover:bg-white hover:text-black"
                                         >
