@@ -10,7 +10,6 @@ export const useAuth = () => {
     const loginMutation = useMutation({
         mutationFn: (loginData) => authService.login(loginData),
         onSuccess: (data) => {
-            console.log(data);
 
             if (data?.jwt) {
                 Cookies.set('jwt', data.jwt, { expires: 7 });
@@ -23,10 +22,12 @@ export const useAuth = () => {
     const registerMutation = useMutation({
         mutationFn: (registerData) => authService.register(registerData),
         onSuccess: (data) => {
-            console.log(data);
+            console.log(data?.user?.id);
             if (data?.jwt) {
                 Cookies.set('jwt', data.jwt, { expires: 7 });
-                localStorage.setItem("name" ,data?.user?.username )
+                localStorage.setItem("name", data?.user?.username)
+                localStorage.setItem("userId", data?.user?.id)
+
                 navigate('/');
             }
         },
