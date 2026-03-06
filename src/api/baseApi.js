@@ -22,9 +22,13 @@ export const baseApi =
     },
 
     // 4. (Update)
-    update: async (endpoint, id, data) => {
-        const res = await api.put(`${endpoint}/${id}`, { data });
-        return res
+    update: async (endpoint, id, quantity) => {
+        const res = await api.put(`${endpoint}/${id}`, {
+            data: {
+                quantity: quantity,
+            }
+        });
+        return res;
     },
 
     // 5.(Delete)
