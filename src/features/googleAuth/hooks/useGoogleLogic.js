@@ -15,19 +15,11 @@ export const useGoogleLogic = () => {
                 const { jwt, user } = await getStrapiUser(token);
 
                 Cookies.set('jwt', jwt, { expires: 7 });
-                console.log(user);
-                
-
-                if (user.image) {
-                    Cookies.set('userImage', user.image, { expires: 7 });
-                    
-                }
-                
                 const finalName = user.username || user.name || 'User';
                 localStorage.setItem('name', finalName);
-
+                localStorage.setItem("userId", user.id)
                 navigate('/', { replace: true });
-                
+
                 // window.location.reload(); 
             }
         } catch (error) {

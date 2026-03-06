@@ -8,10 +8,9 @@ const GoogleLoginBtn = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // التحقق مما إذا كان هناك خطأ عائد من جوجل أو استرابي في الـ URL
         const params = new URLSearchParams(location.search);
         const error = params.get('error');
-        const errorMsg = params.get('message'); // استرابي بيبعت المسج هنا أحياناً
+        const errorMsg = params.get('message'); 
 
         if (error || errorMsg) {
             Swal.fire({
