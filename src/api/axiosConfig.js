@@ -7,7 +7,7 @@ const api = axios.create({
 
 // interceptor requests 
 api.interceptors.request.use((config) => {
-  const token = Cookies.get('jwtToken');
+  const token = Cookies.get('jwt');
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
@@ -21,7 +21,7 @@ api.interceptors.response.use((response) => {
   return response.data;
 }, (error) => {
   if (error.response?.status === 401) {
-    Cookies.remove('jwtToken'); 
+    Cookies.remove('jwt'); 
     window.location.href = '/signin';
   }
   return Promise.reject(error);
