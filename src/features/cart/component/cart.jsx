@@ -40,7 +40,7 @@ function Cart({ updateMutation, remove, cartItems }) {
                             <img
                                 src={`${imageUrl}${item?.product?.image?.url}`}
                                 alt={item?.product?.title}
-                                className="h-full w-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
+                                className="h-full w-full rounded-lg object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
                             />
                         </div>
 

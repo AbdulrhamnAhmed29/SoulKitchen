@@ -17,7 +17,9 @@ export const useGoogleLogic = () => {
                 Cookies.set('jwt', jwt, { expires: 7 });
                 const finalName = user.username || user.name || 'User';
                 localStorage.setItem('name', finalName);
-                localStorage.setItem("userId", user.id)
+                localStorage.setItem("userId", user.id);
+                console.log(user);
+                
                 navigate('/', { replace: true });
 
                 // window.location.reload(); 

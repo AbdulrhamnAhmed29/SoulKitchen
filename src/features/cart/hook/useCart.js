@@ -8,24 +8,23 @@ export const useCart = () => {
         queryKey: ["cart"],
         queryFn: cartServices.getAllCart
     });
+    
 
 
     const addMutation = useMutation({
         mutationFn: (item) => {
             const exist = query.data?.find(i => (i.product?.documentId === item.documentId));
-            const userId = localStorage.getItem("userId")
+            const userId = localStorage.getItem("userId");
+            
 
             if (exist) {
-                console.log("INCREMENT PRODUCT");
                 return cartServices.updateData(
                     exist.documentId,
                     exist.quantity + 1 
                 );
 
             } else {
-                console.log("ADDED NEW PRODUCT");
-                console.log(item);
-
+              
                 return cartServices.create({
                     product: item.documentId,
                     quantity: 1,
