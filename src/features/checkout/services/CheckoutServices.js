@@ -4,8 +4,6 @@ export const checkout = {
 
     createOrder: async (userData) => {
         const res = await baseApi.create("/check-outs", userData);
-        console.log(res);
-
         return res.data
     },
 
@@ -21,7 +19,7 @@ export const checkout = {
     },
 
     createOrderItems: async (data) => {
-        const res = await baseApi.create("/cart-items", data);
+        const res = await baseApi.create("/order-items", data);
         return res.data 
     }
 }
