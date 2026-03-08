@@ -9,13 +9,12 @@ export const cartServices = {
 
     create: async (item) => {
         const res = await baseApi.create("/cart-items", item)
-        console.log(item);
         return res.data
     },
 
     deleteCartData: async (id) => {
         const res = await baseApi.delete("/cart-items", id);
-        return res.data
+        return res
     },
     updateData: async (id, quantity) => {
         const res = await baseApi.update("/cart-items", id, quantity);

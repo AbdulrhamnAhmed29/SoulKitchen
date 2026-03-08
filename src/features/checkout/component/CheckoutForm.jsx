@@ -10,9 +10,7 @@ function CheckoutForm({ isCreating, createOrder }) {
     } = useForm();
 
 
-    const onSubmit = (data) => {
-        console.log(data);
-        
+    const onSubmit = (data) => {        
         createOrder(data);
     };
     // Styles
