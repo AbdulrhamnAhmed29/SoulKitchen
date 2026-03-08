@@ -100,10 +100,10 @@ function CheckoutForm({ isCreating, createOrder }) {
                 <button
                     disabled={isCreating}
                     type="submit"
-                    className="w-full group relative overflow-hidden rounded-full border border-white bg-white text-black py-5 uppercase tracking-[0.4em] text-[11px] font-black transition-all hover:bg-transparent hover:text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full group relative overflow-hidden  border border-white bg-white text-black py-5 uppercase tracking-[0.4em] text-[11px] font-black transition-all hover:bg-transparent hover:text-white disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     <span className="relative z-10">
-                        {isCreating ? "Processing Request..." : "Confirm & Pay Now"}
+                        {isCreating ? "Processing Request..." : "Place Order"}
                     </span>
                     <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
                 </button>
