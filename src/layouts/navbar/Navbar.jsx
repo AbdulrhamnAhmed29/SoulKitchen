@@ -16,7 +16,6 @@ const Navbar = () => {
     const navigate = useNavigate();
     const queryClient = useQueryClient();
 
-    // --- جلب البيانات ---
     const isToken = Cookies.get("jwt");
     const userImage = Cookies.get('userImage');
     const userName = localStorage.getItem('name') || 'Guest';
@@ -85,7 +84,6 @@ const Navbar = () => {
     const navLinks = [
         { name: 'HOME', path: '/' },
         { name: 'ABOUT', path: '/about' },
-        { name: 'MENUS', path: '/menus' },
         { name: 'SHOP', path: '/shop' },
         { name: 'CONTACT', path: '/contact' },
     ];

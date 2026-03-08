@@ -6,6 +6,7 @@ import Cookies from "js-cookie";
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useCart } from '../../cart/hook/useCart';
+import SkeletonCard from '../../../ui/skeletonCard';
 
 const MenuSection = ({ page }) => {
     const { addMutation } = useCart();
@@ -106,9 +107,7 @@ const MenuSection = ({ page }) => {
 
                 {/* Products Grid */}
                 {isLoading ? (
-                    <div className="h-[400px] flex items-center justify-center text-white tracking-[0.5em] animate-pulse uppercase text-[9px]">
-                        Curating the finest...
-                    </div>
+                    <SkeletonCard />
                 ) : (
                     <>
                         <div className="grid grid-cols-1 wrapper sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-20">
@@ -203,7 +202,7 @@ const MenuSection = ({ page }) => {
                                 <Link to="/shop" className="group relative px-10 py-4 overflow-hidden border border-white/10 rounded-lg transition-all duration-500">
                                     <div className="absolute inset-0 w-0 bg-white transition-all duration-500 ease-out group-hover:w-full"></div>
                                     <span className="relative text-1xl rounded-lg font-semibold tracking-wide text-white group-hover:text-black transition-colors duration-1000">
-                                         FULL MENU
+                                        FULL MENU
                                     </span>
                                 </Link>
                             </div>
