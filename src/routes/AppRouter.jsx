@@ -11,6 +11,7 @@ import GoogleCallback from '../features/googleAuth/components/GoogleCallback';
 import CartPage from '../features/cart/page/CartPage';
 import Shop from '../generalPages/Shop';
 import CheckoutPage from '../features/checkout/page/CheckoutPage';
+import AboutPage from '../generalPages/About';
 
 const router = createBrowserRouter([
     {
@@ -26,6 +27,8 @@ const router = createBrowserRouter([
             { path: '/cart', element: <CartPage /> },
             { path: '/shop', element: <Shop /> },
             { path: '/checkout', element: <CheckoutPage /> },
+            { path: '/about', element: <AboutPage /> },
+
 
 
 
