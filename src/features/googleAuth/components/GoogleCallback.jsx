@@ -6,7 +6,7 @@ const GoogleCallback = () => {
 
     useEffect(() => {
         handleGoogleAuth();
-    }, []);
+    }, [handleGoogleAuth]);
 
     return (
         <div className="h-screen bg-black flex flex-col items-center justify-center">
