@@ -53,10 +53,11 @@ function CartPage() {
                     {/* ----------- summary component --------- */}
                     <div className='lg:col-span-4 rounded-2xl shadow-sm h-fit sticky top-10"'>
                         <Summary
+                            page={"cart"}
                             total={total}
                             subtotal={subtotal}
                             shipping={""}
-                            
+
                         />
                     </div>
                 </div>

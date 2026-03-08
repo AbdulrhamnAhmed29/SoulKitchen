@@ -17,7 +17,7 @@ function CheckoutPage() {
 
     const shipping = 50;
     const total = subtotal + shipping;
-    localStorage.setItem("productPrice" ,total);
+    localStorage.setItem("productPrice", total);
 
 
     return (
@@ -32,7 +32,7 @@ function CheckoutPage() {
 
             <main className="max-w-7xl mx-auto px-6 py-16">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-start">
-                    
+
                     <div className="lg:col-span-7 order-2 lg:order-1">
                         <div className="relative p-1 border-t border-l border-white/10 bg-gradient-to-br from-white/5 to-transparent">
                             <div className="bg-[#080808] p-8 md:p-12">
@@ -51,15 +51,16 @@ function CheckoutPage() {
                     <div className="lg:col-span-5 order-1 lg:order-2 sticky top-28">
                         <div className="relative group">
                             <div className="absolute -inset-1 bg-gradient-to-r from-white/5 to-transparent blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                            
+
                             <div className="relative">
                                 <Summary
+                                    page={"checkout"}
                                     total={total}
                                     subtotal={subtotal}
                                     shipping={shipping}
                                 />
-                                
-                               
+
+
                             </div>
                         </div>
                     </div>
@@ -67,7 +68,7 @@ function CheckoutPage() {
                 </div>
             </main>
 
-          
+
         </div>
     )
 }
