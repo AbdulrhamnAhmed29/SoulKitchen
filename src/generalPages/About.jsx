@@ -94,7 +94,7 @@ const AboutPage = () => {
               <img 
                 src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&q=80" 
                 alt="Chef Craft" 
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                className="w-full h-full object-cover n hover:grayscale-0 transition-all duration-1000"
               />
             </div>
           </motion.div>

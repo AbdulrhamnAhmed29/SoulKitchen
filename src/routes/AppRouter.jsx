@@ -12,6 +12,7 @@ import CartPage from '../features/cart/page/CartPage';
 import Shop from '../generalPages/Shop';
 import CheckoutPage from '../features/checkout/page/CheckoutPage';
 import AboutPage from '../generalPages/About';
+import BookPage from '../features/bookingSystem/page/BookPage';
 
 const router = createBrowserRouter([
     {
@@ -28,6 +29,9 @@ const router = createBrowserRouter([
             { path: '/shop', element: <Shop /> },
             { path: '/checkout', element: <CheckoutPage /> },
             { path: '/about', element: <AboutPage /> },
+            { path: '/reservations', element: <BookPage /> },
+
+
 
 
 
