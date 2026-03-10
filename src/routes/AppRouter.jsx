@@ -1,7 +1,7 @@
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 
 // Layouts
-import AppLayout from '../layouts/AppLayout';
+import AppLayout from '../layouts/AppLayout/AppLayout';
 
 // Pages
 import Signin from '../features/auth/pages/Signin';
@@ -13,6 +13,10 @@ import Shop from '../generalPages/Shop';
 import CheckoutPage from '../features/checkout/page/CheckoutPage';
 import AboutPage from '../generalPages/About';
 import BookPage from '../features/bookingSystem/page/BookPage';
+import ProfileLayout from '../layouts/DashboardLayout/Dahsboard';
+import OverviewPage from '../features/userDashboard/overview/page/OverviewPage';
+import OrderPage from '../features/userDashboard/userOrders/page/OrderPage';
+import BookingPage from '../features/userDashboard/userBookings/page/BookingPage';
 
 const router = createBrowserRouter([
     {
@@ -25,11 +29,28 @@ const router = createBrowserRouter([
             { path: '/signin', element: <Signin /> },
             { path: '/signup', element: <Signup /> },
             { path: '/auth/google/callback', element: <GoogleCallback /> },
+
+            // Authenticated route 
+
+            // ----------- Website Pages -----------
             { path: '/cart', element: <CartPage /> },
             { path: '/shop', element: <Shop /> },
             { path: '/checkout', element: <CheckoutPage /> },
             { path: '/about', element: <AboutPage /> },
             { path: '/reservations', element: <BookPage /> },
+
+
+            // ----------- Dashboard Pages (Nested Route) -----------
+            {
+                path: '/profile',
+                element: <ProfileLayout />,
+                children: [
+                    { index: true, element: <OverviewPage /> }, 
+                    { path: 'orders', element: <OrderPage /> }, 
+                    { path: 'booking', element: <BookingPage /> }, 
+                    { path: 'edit', element: <div>My Comments Page</div> }, 
+                ]
+            },
 
 
 

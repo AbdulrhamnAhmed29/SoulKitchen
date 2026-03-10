@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { HiOutlineMenuAlt3, HiX } from 'react-icons/hi';
 import { motion, AnimatePresence } from 'framer-motion';
 import Cookies from "js-cookie";
 import Swal from 'sweetalert2';
 import { HiOutlineShoppingBag, HiOutlineArrowRightOnRectangle, HiOutlineUser } from "react-icons/hi2";
-import { useAuth } from '../../features/auth/hook/useAuth';
+import { useAuth } from '../../../features/auth/hook/useAuth';
 import { useQueryClient, useQuery } from '@tanstack/react-query';
-import { cartServices } from '../../features/cart/services/cartServices';
+import { cartServices } from '../../../features/cart/services/cartServices';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -81,15 +81,17 @@ const Navbar = () => {
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, [isOpen]);
 
+    const location = useLocation();
+    const isProfilePage = location.pathname.includes('/profile');
     const navLinks = [
         { name: 'HOME', path: '/' },
         { name: 'ABOUT', path: '/about' },
         { name: 'SHOP', path: '/shop' },
-        { name: 'CONTACT', path: '/contact' },
+        { name: 'BOOKING', path: '/reservations' },
     ];
 
     return (
-        <nav className={`fixed top-0 w-full z-[100] transition-all duration-500 ${isScrolled ? 'bg-black/95 backdrop-blur-md py-4 border-b border-white/5 shadow-2xl' : 'bg-transparent py-8'}`}>
+        <nav className={`fixed top-0 w-full z-[100] transition-all duration-500 ${isProfilePage?"hidden" :""}  ${isScrolled ? 'bg-black/95 backdrop-blur-md py-4 border-b border-white/5 shadow-2xl' : 'bg-transparent py-8'}`}>
             <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex justify-between items-center">
 
                 {/* Logo */}
