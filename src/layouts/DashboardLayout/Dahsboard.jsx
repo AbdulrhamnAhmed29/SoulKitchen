@@ -20,9 +20,9 @@ function ProfileLayout() {
 
                         {/* 3.content*/}
                     </div>
-                    <main className="p-8 overflow-y-auto">
+                    <main className="p-8 overflow-y-auto w-full">
                         <Outlet />
-                        test
+                        
                     </main>
                 </div>
                 <footer>
