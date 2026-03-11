@@ -6,7 +6,6 @@ function Summary({ subtotal, page }) {
     const { query } = useCart();
     const cartItems = query?.data || [];
     const isCheckoutPage = page === "checkout";
-    console.log(cartItems);
     const imageUrl = process.env.REACT_APP_URL || "http://localhost:1337";
 
 
@@ -14,7 +13,7 @@ function Summary({ subtotal, page }) {
     const totalAmount = subtotal;
 
     return (
-        <div className="lg:col-span-4 lg:sticky lg:top-8 h-fit">
+        <div className="lg:col-span-4 lg:sticky lg:top-8 h-fit sticky top-10">
             <div className="bg-[#111111] border border-white/5 p-8 rounded-sm">
                 {/* Your Order */}
                 <h3 className="text-2xl font-semibold text-white mb-8 tracking-tight">
@@ -54,7 +53,7 @@ function Summary({ subtotal, page }) {
                                     </div>
 
                                     <span className="text-gray-300 font-light tabular-nums flex-shrink-0"> {/* flex-shrink-0 مهم عشان السعر ميبقاش ضيق */}
-                                        ${(item.product.price * item.quantity).toFixed(2)}
+                                            EGP {(item.product.price * item.quantity).toFixed(2)}
                                     </span>
                                 </div>
                             ))
@@ -70,7 +69,7 @@ function Summary({ subtotal, page }) {
                     <div className="flex justify-between items-center text-sm py-1">
                         <span className="text-gray-400 font-light">Subtotal</span>
                         <span className="text-white font-medium tabular-nums">
-                            ${parseFloat(subtotal).toFixed(2)}
+                            EGP{parseFloat(subtotal).toFixed(2)}
                         </span>
                      
                     </div>
@@ -80,7 +79,7 @@ function Summary({ subtotal, page }) {
                         <span className="text-gray-400 font-light text-sm">Total</span>
                         <div className="text-right">
                             <span className="text-3xl font-bold text-white tabular-nums">
-                                ${parseFloat(totalAmount).toFixed(2)}
+                                EGP {parseFloat(totalAmount).toFixed(2)}
                             </span>
                         </div>
                     </div>
@@ -93,7 +92,6 @@ function Summary({ subtotal, page }) {
                         </Link>
                     </button>
                 ) : (
-                    /* رسالة التنبيه في صفحة التشيك أوت زي التصميم */
                     <div className="mt-10 p-4 bg-[#1a1a1a] border border-white/5 rounded-sm">
                         <p className="text-[12px] text-gray-400 font-light leading-relaxed">
                             Sorry, it seems that there are no available payment methods. Please contact us if you require assistance or wish to make alternate arrangements.
@@ -101,7 +99,7 @@ function Summary({ subtotal, page }) {
                     </div>
                 )}
 
-                {/*continue shipping button - اختياري لو عايز تشيله من صفحة التشيك أوت */}
+                {/*continue shipping button -  */}
                 {!isCheckoutPage && (
                     <button className="w-full mt-3 group relative rounded-sm overflow-hidden border border-white/20 bg-transparent text-white/70 py-4 uppercase tracking-[0.2em] text-xs font-medium transition-all hover:border-white hover:text-white">
                         <Link to={"/shop"} className="relative z-10 block w-full">

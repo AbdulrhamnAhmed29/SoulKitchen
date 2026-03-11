@@ -1,4 +1,4 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation,  useQueryClient } from "@tanstack/react-query";
 import { checkout } from "../services/CheckoutServices";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -78,19 +78,26 @@ export const useCheckout = () => {
                 })
             }
 
-            navigate("/thank-you", {
-                state: { orderDetails: response?.data || response }
+            navigate("/Thank", {
+                state: {
+                    orderDetails: response?.data || response,
+
+                }
             });
 
         },
         onError: (error) => {
             toast.error("PURCHASE FAILED. PLEASE TRY AGAIN.");
             console.error("Checkout Error:", error);
-        }
+        },
     });
+
+
+
 
     return {
         createOrder: createOrderMutation.mutate,
         isCreating: createOrderMutation.isPending,
+
     };
 };

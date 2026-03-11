@@ -14,7 +14,7 @@ export const checkout = {
 
 
     createMainOrder: async (data) => {
-        const res = await baseApi.create("/orders", data);
+        const res = await baseApi.create("/orders?populate[orderitems][populate]=product&populate[checkout]=*", data);
         return res.data
     },
 
