@@ -13,6 +13,7 @@ export const useAuth = () => {
 
             if (data?.jwt) {
                 Cookies.set('jwt', data.jwt, { expires: 7 });
+                localStorage.setItem("userId" ,data.user.id )
                 navigate('/');
             }
         },

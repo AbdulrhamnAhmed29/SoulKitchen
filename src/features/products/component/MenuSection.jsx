@@ -41,7 +41,7 @@ const MenuSection = ({ page }) => {
     const handleAddToCart = (productTitle, item) => {
         if (isAuth) {
             addMutation(item);
-            toast.success(`${productTitle} added to your cart!`, {
+            toast.success(`EGP ${productTitle} added to your cart!`, {
                 style: {
                     border: '1px solid #333',
                     padding: '16px',
@@ -131,7 +131,7 @@ const MenuSection = ({ page }) => {
                                             {/* Floating Price Tag - */}
                                             <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1.5 border border-white/10">
                                                 <span className="text-white text-[11px] font-medium tracking-[0.2em]">
-                                                    ${item.price}
+                                                    EGP {item.price}
                                                 </span>
                                             </div>
                                         </div>

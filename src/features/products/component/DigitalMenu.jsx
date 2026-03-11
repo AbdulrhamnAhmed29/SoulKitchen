@@ -36,7 +36,7 @@ function DigitalMenu() {
                                 <h4 className="text-lg font-medium text-white transition-colors duration-300">
                                     {item.title}
                                 </h4>
-                                <span className="text-gray-400 font-light text-base">{item.price}</span>
+                                <span className="text-gray-400 font-light text-base"> EGP{item.price}</span>
                             </div>
                             <p className="text-gray-500  w-64 text-sm leading-relaxed italic">
                                 {item.description}

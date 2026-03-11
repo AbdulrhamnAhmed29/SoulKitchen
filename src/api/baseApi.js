@@ -11,7 +11,7 @@ export const baseApi =
     },
     // 2.  (Read) by id
     getOne: async (endpoint, id, params = {}) => {
-        const res = await api.get(`${endpoint}/${id}`, { params });;
+        const res = await api.get(`${endpoint}/${id}?populate=*`, { params });;
         return res
     },
 

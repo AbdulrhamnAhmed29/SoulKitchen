@@ -8,6 +8,7 @@ import { HiOutlineShoppingBag, HiOutlineArrowRightOnRectangle, HiOutlineUser } f
 import { useAuth } from '../../../features/auth/hook/useAuth';
 import { useQueryClient, useQuery } from '@tanstack/react-query';
 import { cartServices } from '../../../features/cart/services/cartServices';
+import { useProfile } from '../../../features/userDashboard/profile/hook/useProfile';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -16,8 +17,11 @@ const Navbar = () => {
     const navigate = useNavigate();
     const queryClient = useQueryClient();
 
+    const { userData } = useProfile();
+    const imageUrl = process.env.REACT_APP_URL || "http://localhost:1337";
+    const image = userData?.image?.url;
+
     const isToken = Cookies.get("jwt");
-    const userImage = Cookies.get('userImage');
     const userName = localStorage.getItem('name') || 'Guest';
     const { logout } = useAuth();
 
@@ -32,9 +36,7 @@ const Navbar = () => {
 
     const avatarFallback = `https://ui-avatars.com/api/?name=${encodeURIComponent(userName)}&background=000&color=fff&bold=true`;
 
-    const finalProfileImage = (userImage && userImage !== 'null' && userImage !== 'undefined')
-        ? userImage
-        : avatarFallback;
+   
 
     const handleLogout = () => {
         Swal.fire({
@@ -91,7 +93,7 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className={`fixed top-0 w-full z-[100] transition-all duration-500 ${isProfilePage?"hidden" :""}  ${isScrolled ? 'bg-black/95 backdrop-blur-md py-4 border-b border-white/5 shadow-2xl' : 'bg-transparent py-8'}`}>
+        <nav className={`fixed top-0 w-full z-[100] transition-all duration-500 ${isProfilePage ? "hidden" : ""}  ${isScrolled ? 'bg-black/95 backdrop-blur-md py-4 border-b border-white/5 shadow-2xl' : 'bg-transparent py-8'}`}>
             <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex justify-between items-center">
 
                 {/* Logo */}
@@ -128,7 +130,7 @@ const Navbar = () => {
 
                                 <Link to="/profile" className="rounded-full border border-white/10 hover:border-white/30 transition-all overflow-hidden w-8 h-8 flex items-center justify-center bg-zinc-900 shadow-inner">
                                     <img
-                                        src={finalProfileImage}
+                                        src={`${imageUrl}${image}`}
                                         alt="profile"
                                         className="h-full w-full object-cover"
                                         onError={(e) => { e.target.src = avatarFallback }}
@@ -177,7 +179,7 @@ const Navbar = () => {
                                 <div className="relative mb-6">
                                     <div className="absolute -inset-2 bg-gradient-to-tr from-white/10 to-transparent rounded-full blur-[8px]"></div>
                                     <img
-                                        src={finalProfileImage}
+                                      src={`${imageUrl}${image}`}
                                         className="relative w-28 h-28 rounded-full border-4 border-white/10 object-cover shadow-2xl bg-zinc-950"
                                         alt="profile"
                                         onError={(e) => { e.target.src = avatarFallback }}
