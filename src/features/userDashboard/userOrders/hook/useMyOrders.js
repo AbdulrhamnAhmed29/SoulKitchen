@@ -1,8 +1,10 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import { orderServices } from "../services/orderServices"
 
-export const useMyorder = (onSuccessCallback, onErrorCallback) => {
+export const useMyorder = ( id ,onSuccessCallback, onErrorCallback ) => {
     const queryClient = useQueryClient();
+    console.log(id);
+    
 
     // 1. show orders
     const ShowMyOrders = useQuery({
@@ -23,8 +25,9 @@ export const useMyorder = (onSuccessCallback, onErrorCallback) => {
         queryKey: ['ordersitems'],
         queryFn: orderServices.findAllItems,
     });
-
   
+
+
 
     // 2. delete orders
     const deleteMutation = useMutation({
@@ -48,6 +51,7 @@ export const useMyorder = (onSuccessCallback, onErrorCallback) => {
         isDeleting: deleteMutation.isLoading,
         //  ShowMyOrdersItems 
         ShowMyOrdersItems: ShowMyOrdersItems.data,
+
 
 
 

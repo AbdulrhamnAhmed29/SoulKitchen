@@ -6,7 +6,6 @@ import { useMyorder } from '../features/userDashboard/userOrders/hook/useMyOrder
 function Thank() {
     const { ShowMyOrdersItems } = useMyorder();
     
-    
     // my user 
     const orderState = ShowMyOrdersItems;
     const orders = orderState?.orders || [];
@@ -68,9 +67,8 @@ function Thank() {
                                 {/* 1. Product Name: */}
                                 <div className="w-1/2 pr-2">
                                     <span className="uppercase font-bold block break-words">
-                                        {item.product?.title || item.product?.name || 'Signature Dish'}
+                                        {item.product?.title ||  'Signature Dish'}
                                     </span>
-                                    {/* لو حابب تضيف السعر الفردي بخط صغير تحت الاسم */}
                                     <span className="text-[9px] opacity-60">
                                         Unit: EGP {item.product?.price}
                                     </span>
@@ -81,7 +79,7 @@ function Thank() {
                                     x{item.quantity}
                                 </span>
 
-                                {/* 3. TOTAL PRICE: السعر الإجمالي للصنف (الكمية × السعر) */}
+                                {/* 3. TOTAL PRICE: */}
                                 <span className="w-1/4 text-right font-black">
                                     EGP {item.price || (item.quantity * item.product?.price)}
                                 </span>

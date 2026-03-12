@@ -17,6 +17,7 @@ import ProfileLayout from '../layouts/DashboardLayout/Dahsboard';
 import OverviewPage from '../features/userDashboard/overview/page/OverviewPage';
 import OrderPage from '../features/userDashboard/userOrders/page/OrderPage';
 import BookingPage from '../features/userDashboard/userBookings/page/BookingPage';
+import Thank from '../generalPages/Thank';
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,8 @@ const router = createBrowserRouter([
             { path: '/checkout', element: <CheckoutPage /> },
             { path: '/about', element: <AboutPage /> },
             { path: '/reservations', element: <BookPage /> },
+            { path: '/Thank', element: <Thank /> },
+
 
 
             // ----------- Dashboard Pages (Nested Route) -----------
@@ -45,10 +48,12 @@ const router = createBrowserRouter([
                 path: '/profile',
                 element: <ProfileLayout />,
                 children: [
-                    { index: true, element: <OverviewPage /> }, 
-                    { path: 'orders', element: <OrderPage /> }, 
-                    { path: 'booking', element: <BookingPage /> }, 
-                    { path: 'edit', element: <div>My Comments Page</div> }, 
+                    { index: true, element: <OverviewPage /> },
+                    { path: 'orders', element: <OrderPage /> },
+
+                    { path: 'booking', element: <BookingPage /> },
+
+
                 ]
             },
 

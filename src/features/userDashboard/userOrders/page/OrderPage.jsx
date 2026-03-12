@@ -27,10 +27,6 @@ const itemVariants = {
 function OrderPage() {
     const { isDeleting, deleteOrder, isError, isLoading, myOrder } = useMyorder();
     const orders = myOrder;
-    console.log(orders);
-    
-    
-
     return (
         <motion.div 
             initial="hidden"
@@ -74,7 +70,7 @@ function OrderPage() {
                     <div className="text-center">
                         <span className="block text-[10px] uppercase tracking-[0.2em] text-white/20 mb-1">Active</span>
                         <span className="text-xl font-bold text-green-500">
-                            {orders?.filter(o => o.status === 'pending').length || 0}
+                            {orders?.filter(o => o.statusOrder === 'pending').length || 0}
                         </span>
                     </div>
                 </div>
