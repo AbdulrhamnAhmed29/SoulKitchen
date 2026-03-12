@@ -15,7 +15,7 @@ export const orderServices = {
         return res;
     },
         findById: async (id) => {
-        const res = await baseApi.getOne("/orders",id);
+        const res = await baseApi.getOne("/orders",id); 
         return res;
     },
 
