@@ -3,21 +3,23 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 // Layouts
 import AppLayout from '../layouts/AppLayout/AppLayout';
 
-// Pages
+// -----------general Pages-------------
 import Signin from '../features/auth/pages/Signin';
 import Signup from '../features/auth/pages/Signup';
 import Home from '../generalPages/Home';
 import GoogleCallback from '../features/googleAuth/components/GoogleCallback';
+import AboutPage from '../generalPages/About';
+
+// -----------Authanticated Pages-------------
 import CartPage from '../features/cart/page/CartPage';
 import Shop from '../generalPages/Shop';
 import CheckoutPage from '../features/checkout/page/CheckoutPage';
-import AboutPage from '../generalPages/About';
 import BookPage from '../features/bookingSystem/page/BookPage';
 import ProfileLayout from '../layouts/DashboardLayout/Dahsboard';
 import OverviewPage from '../features/userDashboard/overview/page/OverviewPage';
 import OrderPage from '../features/userDashboard/userOrders/page/OrderPage';
-import BookingPage from '../features/userDashboard/userBookings/page/BookingPage';
 import Thank from '../generalPages/Thank';
+import BookingPage from '../features/userDashboard/Bookings/page/BookingPage';
 
 const router = createBrowserRouter([
     {
@@ -50,7 +52,6 @@ const router = createBrowserRouter([
                 children: [
                     { index: true, element: <OverviewPage /> },
                     { path: 'orders', element: <OrderPage /> },
-
                     { path: 'booking', element: <BookingPage /> },
 
 

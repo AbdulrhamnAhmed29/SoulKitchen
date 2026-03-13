@@ -1,11 +1,18 @@
 import React from 'react';
 import { useProfile } from '../../../features/userDashboard/profile/hook/useProfile';
-
+import Cookies from 'js-cookie'
 function SidebarProfileSection() {
-
+    const userImage = Cookies.get('userImage');
+    const userName = localStorage.getItem('name') || 'Guest';
     const { userData } = useProfile();
     const imageUrl = process.env.REACT_APP_URL || "http://localhost:1337";
-    const image = userData?.image?.url ;
+    const image = userData?.image?.url;
+
+    const avatarFallback = `https://ui-avatars.com/api/?name=${encodeURIComponent(userName)}&background=000&color=fff&bold=true`;
+
+    const finalProfileImage = (userImage && userImage !== 'null' && userImage !== 'undefined')
+        ? userImage
+        : avatarFallback;
 
 
 
@@ -14,8 +21,7 @@ function SidebarProfileSection() {
             <div className="relative group md:flex-col flex-row  items-center">
                 <div className="relative ">
                     <img
-                        src={`${imageUrl}${image}`}
-                        alt="Abdulrhman Ahmed"
+                        src={image ? `${imageUrl}${image}` : finalProfileImage} alt="profile"
                         className="w-20 md:w-full aspect-square rounded-full border border-white/10 object-cover"
                     />
                 </div>

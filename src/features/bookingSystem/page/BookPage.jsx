@@ -1,64 +1,120 @@
-import React from 'react'
-import BookForm from '../component/Book'
-import {useCreateReservations} from "../hook/useBooking"
+import React from 'react';
+import BookForm from '../component/Book';
+import { useCreateReservations } from "../hook/useBooking";
+import { motion } from 'framer-motion';
+import { RiTimeLine, RiInformationLine, RiDoubleQuotesL } from "react-icons/ri";
 
 function BookPage() {
-    const { isError, isLoading, BookTable } =useCreateReservations()
+    const { isError, isLoading, BookTable } = useCreateReservations();
 
     return (
-        <div className="min-h-screen bg-[#050505] text-white pt-28 pb-20 px-4 md:px-10 ">
-            {/* Header */}
-            <div className="max-w-7xl mx-auto mb-16 text-center">
-                <h1 className="text-4xl md:text-6xl font-serif font-light tracking-widest uppercase mb-4">
-                    Reserve A Table
-                </h1>
-                <div className="h-[1px] w-20 bg-gold-500 mx-auto bg-white"></div>
-            </div>
+        <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="min-h-screen bg-[#050505] text-white pt-32 pb-20 px-4 md:px-10 overflow-hidden"
+        >
+            {/* Background Decorative Element */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-[120px] -mr-64 -mt-64 pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            {/* Header Section */}
+            <header className="max-w-7xl mx-auto mb-20 relative z-10">
+                <motion.div 
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center space-y-4"
+                >
+                    <span className="text-[10px] tracking-[0.5em] text-white/40 uppercase block">The Art of Dining</span>
+                    <h1 className="text-5xl md:text-7xl font-serif italic font-light tracking-tight text-white uppercase">
+                        Reserve A Table
+                    </h1>
+                    <div className="h-[1px] w-24 bg-gradient-to-r from-transparent via-white to-transparent mx-auto mt-6"></div>
+                </motion.div>
+            </header>
+
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10">
                 
-                {/*(Info) */}
-                <div className="lg:col-span-4 order-2 lg:order-1 space-y-12 sticky top-28">
-                    <div className="bg-[#0a0a0a] border border-white/5 p-8 rounded-sm">
-                        <h3 className="text-xl font-serif mb-6 text-white uppercase tracking-wider">Opening Hours</h3>
-                        <ul className="space-y-4 text-sm font-light text-gray-400">
-                            <li className="flex justify-between border-b border-white/5 pb-2">
-                                <span>Monday - Friday</span>
-                                <span className="text-white">10:00 AM - 11:00 PM</span>
-                            </li>
-                            <li className="flex justify-between border-b border-white/5 pb-2">
-                                <span>Saturday</span>
-                                <span className="text-white">12:00 PM - 12:00 AM</span>
-                            </li>
-                            <li className="flex justify-between border-b border-white/5 pb-2">
-                                <span>Sunday</span>
-                                <span className="text-yellow-700 italic">Closed</span>
-                            </li>
+                {/* Left Side: Information & Quote */}
+                <motion.div 
+                    initial={{ x: -30, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                    className="lg:col-span-4 space-y-8 lg:sticky lg:top-32"
+                >
+                    {/* Opening Hours Card */}
+                    <div className="bg-white/[0.02] border border-white/5 p-10 rounded-3xl backdrop-blur-xl">
+                        <div className="flex items-center gap-3 mb-8">
+                            <RiTimeLine className="text-white/40" size={20} />
+                            <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-white/80">Opening Hours</h3>
+                        </div>
+                        <ul className="space-y-6 text-sm">
+                            {[
+                                { day: "Mon - Fri", time: "10:00 AM - 11:00 PM" },
+                                { day: "Saturday", time: "12:00 PM - 12:00 AM" },
+                                { day: "Sunday", time: "Closed", special: true }
+                            ].map((item, idx) => (
+                                <li key={idx} className="flex justify-between items-center group">
+                                    <span className="text-white/40 group-hover:text-white/60 transition-colors font-light">{item.day}</span>
+                                    <span className={`font-medium tracking-wide ${item.special ? 'text-amber-700 italic' : 'text-white/80'}`}>
+                                        {item.time}
+                                    </span>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
-                 
-                </div>
+                    {/* Brand Quote */}
+                    <div className="px-6 py-4 border-l border-white/10 italic">
+                        <RiDoubleQuotesL className="text-white/10 mb-2" size={30} />
+                        <p className="text-white/40 text-sm leading-relaxed font-light">
+                            "Cooking is an art, but all art requires knowing something about the craft."
+                        </p>
+                    </div>
+                </motion.div>
 
-                {/* (BookForm) */}
-                <div className="lg:col-span-8 order-1 lg:order-2">
-                    <div className="bg-[#0a0a0a] border border-white/5 p-6 md:p-12 rounded-sm shadow-2xl">
-                        <div className="mb-8">
-                            <h2 className="text-2xl font-light mb-2">Book Your Experience</h2>
-                            <p className="text-gray-500 text-sm">Please fill in the details below to secure your spot.</p>
+                {/* Right Side: The Form */}
+                <motion.div 
+                    initial={{ x: 30, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                    className="lg:col-span-8"
+                >
+                    <div className="bg-[#0a0a0a] border border-white/5 p-8 md:p-16 rounded-[40px] shadow-2xl relative overflow-hidden group">
+                        {/* Decorative glow inside form */}
+                        <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-white/[0.01] rounded-full blur-[80px] group-hover:bg-white/[0.03] transition-all duration-700" />
+                        
+                        <div className="mb-12 relative z-10">
+                            <div className="flex items-center gap-3 mb-4">
+                                <span className="h-[1px] w-8 bg-white/20"></span>
+                                <span className="text-[10px] uppercase tracking-[0.3em] text-white/40">Secure Your Table</span>
+                            </div>
+                            <h2 className="text-3xl font-light text-white mb-4 italic font-serif">Book Your Experience</h2>
+                            <p className="text-white/30 text-xs max-w-md leading-relaxed font-light uppercase tracking-widest">
+                                Join us for an unforgettable evening. Please provide your details to complete the reservation.
+                            </p>
                         </div>
                         
-                        <BookForm
-                            Book={BookTable}
-                            isLoading={isLoading}
-                            isError={isError}
-                        />
+                        <div className="relative z-10">
+                            <BookForm
+                                Book={BookTable}
+                                isLoading={isLoading}
+                                isError={isError}
+                            />
+                        </div>
+
+                        {/* Note at the bottom */}
+                        <div className="mt-10 flex items-start gap-3 p-4 bg-white/5 border border-white/5 rounded-2xl">
+                            <RiInformationLine className="text-white/20 mt-0.5" size={16} />
+                            <p className="text-[10px] text-white/30 leading-normal uppercase tracking-widest">
+                                For parties larger than 8, please contact our concierge directly via phone for special arrangements.
+                            </p>
+                        </div>
                     </div>
-                </div>
+                </motion.div>
 
             </div>
-        </div>
-    )
+        </motion.div>
+    );
 }
 
-export default BookPage
+export default BookPage;

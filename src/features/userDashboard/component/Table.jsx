@@ -1,5 +1,5 @@
 import React from 'react';
-import {  RiDeleteBin7Line, RiTimeLine } from "react-icons/ri";
+import { RiDeleteBin7Line, RiTimeLine } from "react-icons/ri";
 import { motion, AnimatePresence } from 'framer-motion';
 import Swal from 'sweetalert2';
 
@@ -110,7 +110,7 @@ function Table({ myOrders, myOrderIsloading, isError, deletOrder, isDeleting }) 
                                 {/* Actions */}
                                 <td className="px-8 py-6">
                                     <div className="flex items-center justify-end gap-3">
-                                       
+
                                         <button
                                             onClick={() => handleDelete(order.documentId)}
                                             disabled={isDeleting}

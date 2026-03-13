@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 function HeroSection() {
     
@@ -7,7 +8,7 @@ function HeroSection() {
     return (
         <section className="relative h-screen w-full flex items-center justify-center bg-black overflow-hidden">
 
-            {/* 1. Background Image - أنيميشن التكبير السينمائي المستمر */}
+            {/* 1. Background Image */}
             <motion.div
                 initial={{ scale: 1.2 }}
                 animate={{ scale: 1 }}
@@ -24,7 +25,7 @@ function HeroSection() {
             {/* 2. Content - محتوى الهيرو */}
             <div className="relative z-10 text-center px-4 max-w-5xl">
 
-                {/* نص الترحيب الصغير مع تباعد الحروف التدريجي */}
+                {/* */}
                 <motion.p 
                     initial={{ opacity: 0, tracking: "0.2em" }}
                     animate={{ opacity: 0.8, tracking: "0.8em" }}
@@ -34,7 +35,6 @@ function HeroSection() {
                     Enjoy an unforgettable experience
                 </motion.p>
 
-                {/* العنوان الرئيسي مع أنيميشن ظهور هادئ */}
                 <motion.h1 
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -47,7 +47,6 @@ function HeroSection() {
                     </span>
                 </motion.h1>
 
-                {/* أزرار الأكشن مع أنيميشن الظهور من الأسفل */}
                 <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -55,16 +54,15 @@ function HeroSection() {
                     className="flex flex-col md:flex-row items-center justify-center gap-6 mt-8"
                 >
                     <button className="group relative px-12 py-4 bg-transparent border border-white text-white text-[10px] tracking-[0.4em] uppercase hover:bg-white hover:text-black transition-all duration-500 overflow-hidden">
-                        <span className="relative z-10">See Menu</span>
+                        <Link to={"/shop"} className="relative z-10">See Menu</Link>
                     </button>
 
                     <button className="group relative px-12 py-4 bg-white text-black text-[10px] tracking-[0.4em] uppercase hover:bg-transparent hover:text-white border border-white transition-all duration-500 overflow-hidden">
-                        <span className="relative z-10">Book Your Table</span>
+                        <Link to={"/reservations"} className="relative z-10">Book Your Table</Link>
                     </button>
                 </motion.div>
             </div>
 
-            {/* 3. Side "Welcome" Text - أنيميشن الظهور الجانبي */}
             <motion.div 
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -76,7 +74,6 @@ function HeroSection() {
                 </p>
             </motion.div>
 
-            {/* 4. Scroll Indicator - أنيميشن الخط النازل */}
             <motion.div 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

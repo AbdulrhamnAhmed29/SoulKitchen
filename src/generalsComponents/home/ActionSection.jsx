@@ -58,7 +58,7 @@ const ActionSection = () => {
 
           {/* Delivery Order Button */}
           <Link 
-            to="/menu" 
+            to="/shop" 
             className="group px-12 py-4 border border-white text-white text-[10px] tracking-[0.3em] uppercase font-bold hover:bg-white hover:text-black transition-all duration-500"
           >
             Delivery Order

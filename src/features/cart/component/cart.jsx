@@ -55,7 +55,7 @@ function Cart({ updateMutation, remove, cartItems }) {
                                         {item?.product?.description || 'Signature Dish'}
                                     </p>
                                 </div>
-                                <p className="text-lg font-light tracking-tighter">${item?.product?.price}</p>
+                                <p className="text-lg font-light tracking-tighter">EGP {item?.product?.price}</p>
                             </div>
 
                             {/* delete and quantity  */}
