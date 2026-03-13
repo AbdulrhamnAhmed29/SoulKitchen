@@ -3,7 +3,6 @@ import { orderServices } from "../services/orderServices"
 
 export const useMyorder = ( id ,onSuccessCallback, onErrorCallback ) => {
     const queryClient = useQueryClient();
-    console.log(id);
     
 
     // 1. show orders
