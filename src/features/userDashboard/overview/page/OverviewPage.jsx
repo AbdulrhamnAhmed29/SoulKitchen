@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 
 import { RiShoppingBag3Line, RiVipCrown2Line, RiHistoryLine, RiArrowRightUpLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
-import NextReservationCard from '../component/NextReservationCard';
 import { useBooking } from '../../Bookings/hook/useBooking';
 import { useMyorder } from '../../userOrders/hook/useMyOrders';
+import NextReservationCard from '../component/NextReservationCard';
 
 const containerVariants = {
     hidden: { opacity: 0 },
