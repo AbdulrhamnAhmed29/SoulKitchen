@@ -1,5 +1,5 @@
 import React from 'react';
-import {  RiDeleteBin7Line, RiTimeLine } from "react-icons/ri";
+import { RiDeleteBin7Line, RiTimeLine } from "react-icons/ri";
 import { motion, AnimatePresence } from 'framer-motion';
 import Swal from 'sweetalert2';
 
@@ -53,6 +53,7 @@ function Table({ myOrders, myOrderIsloading, isError, deletOrder, isDeleting }) 
                         <th className="px-8 py-5 text-[10px] uppercase tracking-[0.2em] text-white/30 font-medium">Date</th>
                         <th className="px-8 py-5 text-[10px] uppercase tracking-[0.2em] text-white/30 font-medium text-center">Status</th>
                         <th className="px-8 py-5 text-[10px] uppercase tracking-[0.2em] text-white/30 font-medium">Total</th>
+                        
                         <th className="px-8 py-5 text-[10px] uppercase tracking-[0.2em] text-white/30 font-medium text-right">Actions</th>
                     </tr>
                 </thead>
@@ -110,7 +111,7 @@ function Table({ myOrders, myOrderIsloading, isError, deletOrder, isDeleting }) 
                                 {/* Actions */}
                                 <td className="px-8 py-6">
                                     <div className="flex items-center justify-end gap-3">
-                                       
+
                                         <button
                                             onClick={() => handleDelete(order.documentId)}
                                             disabled={isDeleting}
