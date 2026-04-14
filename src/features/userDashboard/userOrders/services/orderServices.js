@@ -4,7 +4,6 @@ export const orderServices = {
 
     findAll: async (params) => {
         const res = await baseApi.getAll("/users/me?populate[orders][populate][orderitems][populate][product][populate]=image&populate[orders][populate][checkout]=*");  
-        console.log(res);           
         return res;
     },
     deleteOrder: async (id) => {

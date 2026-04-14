@@ -7,6 +7,8 @@ import Swal from 'sweetalert2';
 
 function TableBooking({ myBooking, myBookingIsloading, deleteBooking, isDeleting }) {
 
+    console.log(myBooking);
+    
 
     const handleDelete = (BookingId) => {
         Swal.fire({

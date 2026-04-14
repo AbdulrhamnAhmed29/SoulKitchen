@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { HiOutlineShoppingBag, HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 import { useProducts } from '../hook/useProducts';
 import toast from 'react-hot-toast';
@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useCart } from '../../cart/hook/useCart';
 import SkeletonCard from '../../../ui/skeletonCard';
+
 
 const MenuSection = ({ page }) => {
     const { addMutation } = useCart();
@@ -77,6 +78,13 @@ const MenuSection = ({ page }) => {
         }
     };
 
+useEffect(() => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}, [currentPage]); 
+
     return (
         <section className={`bg-black px-6 lg:px-12 ${isShopPage ? "py-16  bg-gradient-to-t  from-black via-stone-950 to bottom to-stone-950  text-[#e5e5e5]" : ""}`}>
             <div className="max-w-[1400px] mx-auto">
@@ -110,7 +118,7 @@ const MenuSection = ({ page }) => {
                     <SkeletonCard />
                 ) : (
                     <>
-                        <div className="grid grid-cols-1 wrapper sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-20">
+                        <div className="grid grid-cols-2 wrapper sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-20">
                             {products.map((item) => {
 
                                 return (

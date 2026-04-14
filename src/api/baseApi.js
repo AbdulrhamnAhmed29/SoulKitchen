@@ -11,11 +11,11 @@ export const baseApi =
     },
     // 2.  (Read) by id
     getOne: async (endpoint, id, params = {}) => {
-      
+
         const res = await api.get(`${endpoint}/${id}?populate=*`, { params });;
         return res
     },
- 
+
     // 3.(Create)
     create: async (endpoint, data) => {
         const res = await api.post(endpoint, { data });
@@ -29,6 +29,12 @@ export const baseApi =
                 quantity: quantity,
             }
         });
+        return res;
+    },
+
+    // 4. (Update)
+    updateProfile: async (endpoint, id, data) => {
+        const res = await api.put(`${endpoint}/${id}`, data);
         return res;
     },
 

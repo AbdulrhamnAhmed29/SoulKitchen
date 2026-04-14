@@ -73,7 +73,7 @@ function Table({ myOrders, myOrderIsloading, isError, deletOrder, isDeleting }) 
                                         #{order.id}
                                     </span>
                                 </td>
-                                <td className="px-8 py-6 min-w-[180px]"> {/* ضفنا min-w عشان نضمن مساحة كافية */}
+                                <td className="px-8 py-6 min-w-[180px]"> 
                                     <div className="flex flex-col justify-center gap-1">
                                         <span className="text-sm text-white/80 font-medium tracking-tight">
                                             {new Date(order.createdAt).toLocaleDateString('en-GB', {
@@ -83,7 +83,7 @@ function Table({ myOrders, myOrderIsloading, isError, deletOrder, isDeleting }) 
                                             })}
                                         </span>
                                         <span className="text-[10px] text-white/30 uppercase tracking-[0.2em] flex items-center gap-1">
-                                            <RiTimeLine size={12} className="text-white/10" /> {/* أيقونة بسيطة تدي شياكة */}
+                                            <RiTimeLine size={12} className="text-white/10" /> 
                                             {new Date(order.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                                         </span>
                                     </div>

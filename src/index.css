@@ -72,3 +72,40 @@ body {
   backdrop-filter: blur(10);
   transition: all 0.5s ease-in-out;
 }
+
+/* تنسيق المربع (الكليندر) ليكون أسود فخم */
+.dark-calendar {
+  background-color: #000 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  font-family: inherit;
+  color: white !important;
+  border-radius: 0px !important;
+  /* خليها حادة عشان تبان Modern */
+}
+
+.dark-calendar .react-datepicker__header {
+  background-color: #000 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-calendar .react-datepicker__current-month,
+.dark-calendar .react-datepicker__day-name,
+.dark-calendar .react-datepicker__day {
+  color: white !important;
+}
+
+.dark-calendar .react-datepicker__day:hover {
+  background-color: #f59e0b !important;
+  /* لون الـ amber بتاعك عند الهوفر */
+  color: black !important;
+}
+
+.dark-calendar .react-datepicker__day--selected {
+  background-color: #f59e0b !important;
+  color: black !important;
+}
+
+/* إخفاء السهم الصغير */
+.react-datepicker__navigation-icon::before {
+  border-color: white !important;
+}

@@ -51,14 +51,9 @@ export const useCheckout = () => {
                     }
                 );
             });
-
-
             await Promise.all(orderItemsPromises);
-
-
             return orderRes;
         },
-
         onSuccess: (response) => {
 
             queryClient.invalidateQueries({ queryKey: ["cart"] });
