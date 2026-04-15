@@ -92,8 +92,46 @@ Built with a strong focus on **performance, scalability, and modern frontend arc
 ## 📸 Project Screenshots
 
 <p align="center">
-  <img src="file:///C:/Users/Dell/Downloads/user%20dashbord%20my%20orders%20.png" width="45%" alt="Shop Page" />
-  <img src="ضع_لينك_صورة_الـ_Booking_هنا" width="45%" alt="Booking" />
+  home page
+  <img width="1360" height="642" alt="home" src="https://github.com/user-attachments/assets/ee9f9832-2418-47d2-961d-0b8a8cfd9296" />
+  <img width="1347" height="637" alt="Screenshot 2026-04-15 004901" src="https://github.com/user-attachments/assets/3214f4db-06dd-4871-9c01-011f0ca9c7c8" />
+  
+
+  about page 
+  <img width="1356" height="625" alt="aboutme" src="https://github.com/user-attachments/assets/046e17c9-8408-4357-8c35-1ca1253da4fa" />
+  <img width="1360" height="637" alt="Screenshot 2026-04-15 005006" src="https://github.com/user-attachments/assets/bcd73cc7-dace-484a-8946-fe9f5b7fc912" />
+  shop section 
+  <img width="798" height="528" alt="shop" src="https://github.com/user-attachments/assets/155a7aa1-6e4c-40e8-a709-c430bc71fd6b" />
+  cart section 
+  <img width="896" height="596" alt="cart" src="https://github.com/user-attachments/assets/6a9714f1-3461-4dd0-9f3f-f0a8098eb71f" />
+  checkout section 
+  <img width="1038" height="619" alt="checkout" src="https://github.com/user-attachments/assets/e3248fae-e295-44bd-b766-f3bed0f0188d" />
+  Receipt section 
+  <img width="1355" height="633" alt="reciet" src="https://github.com/user-attachments/assets/8459d868-5649-4dab-ad73-60fe4068834d" />
+  if you want print it 
+  <img width="998" height="621" alt="print" src="https://github.com/user-attachments/assets/65ec6a0e-5d98-4227-87d5-bc89e4d0ca19" />
+  booking table 
+  <img width="695" height="511" alt="booking" src="https://github.com/user-attachments/assets/6e90bc6a-8d41-407a-829f-c26fdd2cf07b" />
+  user dashboard 
+    my orders 
+    <img width="1362" height="646" alt="user dashbord my orders " src="https://github.com/user-attachments/assets/ad31ebe9-540a-40f1-95ee-99b8949467be" />
+    responsive design in phone 
+    <img width="471" height="635" alt="sweat alert" src="https://github.com/user-attachments/assets/dbc8f3b5-3f6d-445a-a6b9-5e7172ece805" />
+    <img width="473" height="609" alt="collapse sidbar" src="https://github.com/user-attachments/assets/6637f00c-18bc-4871-88c7-860f5dabbb64" />
+<img width="475" height="641" alt="responsive" src="https://github.com/user-attachments/assets/3f354f05-3250-4d76-844c-892f4034bc81" />
+
+
+
+
+  
+
+
+
+
+  
+
+
+
 </p>
 
 <p align="center">
