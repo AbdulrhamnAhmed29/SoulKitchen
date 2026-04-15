@@ -89,24 +89,23 @@ Built with a strong focus on **performance, scalability, and modern frontend arc
 
 ---
 
-### 📸 Screenshots Gallery
+## 📸 Project Screenshots
 
-#### 🌌 Brand Identity & Discovery
-| Hero Section | About Us | Mobile Responsive |
-| :---: | :---: | :---: |
-| ![Hero](./image_c433e6.jpg) | ![About](./image_c4340a.jpg) | ![Responsive](./responsive.jpg) |
+<p align="center">
+  <img src="file:///C:/Users/Dell/Downloads/user%20dashbord%20my%20orders%20.png" width="45%" alt="Shop Page" />
+  <img src="ضع_لينك_صورة_الـ_Booking_هنا" width="45%" alt="Booking" />
+</p>
 
-#### 🛒 Shopping & Checkout
-| The Shop (Menu) | Shopping Cart | Receipt System |
-| :---: | :---: | :---: |
-| ![Shop](./shop.jpg) | ![Cart](./cart.png) | ![Receipt](./reciet.png) |
+<p align="center">
+  <img src="ضع_لينك_صورة_الـ_Cart_هنا" width="30%" alt="Cart" />
+  <img src="ضع_لينك_صورة_الـ_Checkout_هنا" width="30%" alt="Checkout" />
+  <img src="ضع_لينك_صورة_الـ_Dashboard_هنا" width="30%" alt="Dashboard" />
+</p>
 
-#### 📊 Management & Dashboards
-| User Orders | Table Booking | Print Confirmation |
-| :---: | :---: | :---: |
-| ![Dashboard](./user%20dashbord%20my%20orders%20.png) | ![Booking](./booking.png) | ![Print](./print.png) |
-
-### 🌌 Brand Identity & Discovery
+<p align="center">
+  <img src="ضع_لينك_صورة_الـ_Receipt_هنا" width="45%" alt="Receipt" />
+  <img src="ضع_لينك_صورة_الـ_Alert_هنا" width="45%" alt="Alert" />
+</p>
 
 * Hero Section
 * About Us
@@ -131,7 +130,7 @@ Built with a strong focus on **performance, scalability, and modern frontend arc
 ### Clone Repository
 
 ```bash
-git clone https://github.com/your-username/soul-kitchen.git
+git clone https://github.com/AbdulrhamnAhmed29/SoulKitchen?tab=readme-ov-file
 ```
 
 ---
@@ -166,8 +165,8 @@ npm run dev
 
 **Abdulrhman Ahmed**
 
-* GitHub: (your link)
-* LinkedIn: (your link)
+* GitHub: (https://github.com/AbdulrhamnAhmed29/SoulKitchen?tab=readme-ov-file)
+* LinkedIn: (https://www.linkedin.com/in/abdulrhman-aahmed-828a94354/)
 
 ---
 
