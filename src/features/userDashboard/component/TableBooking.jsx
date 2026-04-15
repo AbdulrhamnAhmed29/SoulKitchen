@@ -7,9 +7,9 @@ import Swal from 'sweetalert2';
 
 function TableBooking({ myBooking, myBookingIsloading, deleteBooking, isDeleting }) {
 
-    console.log(myBooking);
+const Booking =  myBooking || [];    
     
-
+    // delete button handler
     const handleDelete = (BookingId) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -40,7 +40,7 @@ function TableBooking({ myBooking, myBookingIsloading, deleteBooking, isDeleting
         );
     }
 
-    if (!myBooking || myBooking.length === 0) {
+    if (!myBooking || Booking.length === 0) {
         return (
             <div className="w-full h-64 flex items-center justify-center bg-black/20">
                 <span className="text-[10px] tracking-[0.4em] text-white/30 uppercase">No reservations found</span>
@@ -62,7 +62,7 @@ function TableBooking({ myBooking, myBookingIsloading, deleteBooking, isDeleting
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-white/[0.03]">
-                    {myBooking?.map((booking, index) => (
+                    {Booking?.map((booking, index) => (
                         <motion.tr
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}

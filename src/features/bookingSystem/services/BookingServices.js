@@ -2,7 +2,7 @@ import { baseApi } from "../../../api/baseApi"
 
 export const bookingSystem = {
     createReservation: async (data) => {
-        const res = await baseApi.create("/reservations?populate=*", data);
+        const res = await baseApi.create("/reservations?populate=*", data);     
         return res.data
     },
 
