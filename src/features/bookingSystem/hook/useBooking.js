@@ -11,12 +11,11 @@ export const useCreateReservations = () => {
                 statustable: "Pending",
                 users_permissions_user: userId,
                 guests_count: data.guests_count,
-                phone:data.phone,
-               
+                phone:data.phone,              
             });
 
             const reservationsId = create_reservations?.data?.documentId || create_reservations?.documentId;
-
+    
             // 2. create table
             const create_table = await bookingSystem.createTable({
                 table_number: data.table_number,
@@ -33,9 +32,6 @@ export const useCreateReservations = () => {
             });
 
             return { create_reservations, create_table, create_Time_Slot };
-        },
-        onSuccess: (data) => {
-            console.log("All 3 tables populated successfully!", data);
         },
         onError: (error) => {
             console.error("Booking failed at some stage:", error);

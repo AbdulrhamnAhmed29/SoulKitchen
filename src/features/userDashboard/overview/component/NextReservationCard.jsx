@@ -9,8 +9,10 @@ function NextReservationCard() {
     if (isLoading) {
         return <div className="w-full h-48 bg-white/5 animate-pulse rounded-3xl border border-white/5" />;
     }
-    const booking = bookingData;
-
+    // all booking data is stored in bookingData variable, we will use it to display the next reservation details. We will assume that the bookingData is an array of reservations and we will take the first one as the next reservation. 
+    const booking = bookingData || [];
+    // last booking is the next reservation 
+    const lastReservation = booking.at(-1) || [];
 
     if (!booking) {
         return (
@@ -40,7 +42,7 @@ function NextReservationCard() {
 
                     <div className="space-y-2">
                         <h2 className="text-4xl md:text-5xl font-serif italic text-white leading-tight">
-                            {booking.reservation_date}
+                            {lastReservation.reservation_date}
                         </h2>
                         <div className="flex flex-wrap gap-6 mt-4">
                             {/* الوقت - Level 3 Data */}
@@ -48,7 +50,7 @@ function NextReservationCard() {
                                 <RiTimeLine className="text-amber-500" size={20} />
                                 <div>
                                     <p className="text-[9px] uppercase tracking-widest text-white/30">Arrival Time</p>
-                                    <p className="text-sm text-white/80 font-light">{booking.time_slot?.time || "TBD"}</p>
+                                    <p className="text-sm text-white/80 font-light">{lastReservation.time_slot?.time || "TBD"}</p>
                                 </div>
                             </div>
 
@@ -57,7 +59,7 @@ function NextReservationCard() {
                                 <RiRestaurantLine className="text-amber-500" size={20} />
                                 <div>
                                     <p className="text-[9px] uppercase tracking-widest text-white/30">Reserved Table</p>
-                                    <p className="text-sm text-white/80 font-light italic">Table #{booking.table?.table_number || "Pending"}</p>
+                                    <p className="text-sm text-white/80 font-light italic">Table #{lastReservation.table?.table_number || "Pending"}</p>
                                 </div>
                             </div>
 

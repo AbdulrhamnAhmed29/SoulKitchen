@@ -32,6 +32,9 @@ function BookForm({ isLoading, Book }) {
            
         };
 
+        console.log(payload); // تأكد من البيانات قبل الإرسال
+        
+
         try {
             await Book(payload);
             Swal.fire({
@@ -49,7 +52,6 @@ function BookForm({ isLoading, Book }) {
             });
 
             reset();
-            window.location.href = "/home";
         } catch (error) {
             Swal.fire({
                 title: 'ERROR',
