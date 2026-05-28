@@ -1,7 +1,7 @@
 # 🍽️ SOUL KITCHEN — Modern Restaurant & E-Commerce Platform
 
 ---
-
+ 
 ## 🌐 Overview
 
 **SOUL KITCHEN** is a high-end, full-stack restaurant ecosystem that bridges premium e-commerce functionality with an advanced reservation management system.
